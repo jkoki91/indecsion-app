@@ -1,15 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+  <!-- <Counter title="Entraron"></Counter> -->
+  <!-- <Counter title="Salieron"></Counter> -->
+  <!-- <Counter :start=15></Counter> se ponen : para que lo entienda como numero, no como string, es abreviación del v-bind -->
+  <Indecision></Indecision>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import Counter from './components/Counter.vue'
+import Indecision from './components/Indecision.vue'
 
 export default {
-  name: 'App',
+  name: 'App', 
   components: {
-    HelloWorld
+    // Counter,
+    Indecision,
   }
 }
 </script>
