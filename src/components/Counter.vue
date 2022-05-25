@@ -7,9 +7,10 @@
   <p>{{counter}} <sup>2</sup>={{squareCounter}}</p>
   <p>{{counter}} <sup>2</sup>={{squareCounter}}</p> -->
   <p>{{counter}} <sup>2</sup>={{squareCounter}}</p>
+  <p data-testid="counter">{{counter}}</p>
     <div>
         <button v-on:click="sumar">+1</button>
-        <button @click="restar">-1</button>
+        <button @click="restar" data-testid="restar">-1</button>
         <!-- v-on y @ son lo mismo -->
     </div>
 

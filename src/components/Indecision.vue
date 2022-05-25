@@ -34,6 +34,9 @@ export default {
         question( value,oldValue ){
             this.isValidQuestion = false
 
+            console.log({value})
+            console.log({value})
+
             if(!value.includes('?')) return
 
             this.isValidQuestion = true
@@ -43,21 +46,36 @@ export default {
     },
     methods:{
         async getAnswer() {
-            this.answer = 'Pensando...'
+            try{
+                this.answer = 'Pensando...'
 
-            const { answer,image} = await fetch('https://yesno.wtf/api').then(r=>r.json())
-            // .then(d=>console.log(d))
-            if (answer==='yes'){
-                this.answer = 'SI'
-            }else{
-                if(answer==='no'){
-                this.answer = 'NO!!!'
-                }else{this.answer = 'TAL VEZ' }
+                const { answer, image } = await fetch('https://yesno.wtf/api').then(r=>r.json())
+
+                this.answer = answer === 'yes' ? 'SI' : 'NO!!!'
+                this.img = image
+
+            }catch(error){
+              console.log('Indecision component: ', error )
+              this.answer = 'No se pudo cargar el API'
+              this.img = null
             }
-            // this.answer = answer
-            this.img = image
 
-            // console.log(data)
+              // AHORA METO ESTO EN EL TRY CATCH
+            // this.answer = 'Pensando...'
+
+            // const { answer,image} = await fetch('https://yesno.wtf/api').then(r=>r.json())
+            // // .then(d=>console.log(d))
+            // if (answer==='yes'){
+            //     this.answer = 'SI'
+            // }else{
+            //     if(answer==='no'){
+            //     this.answer = 'NO!!!'
+            //     }else{this.answer = 'TAL VEZ' }
+            // }
+            // // this.answer = answer
+            // this.img = image
+
+            // // console.log(data)
         }
     }
 };  
